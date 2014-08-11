@@ -1,0 +1,2 @@
+cmdhistory=["(+ (range 1 10))" "(apply + (range 1 10))" "(range 1 10)" "(range 1 11)" "(apply + (range 1 11))" "(doc range)" "(source apply)" "(cdoc range)" "(user.cdoc range)" "(user/clojuredocs range)" "(find-doc r*)" "(find-doc r.*)" "(find-doc r\\n          )" "(find-doc range)" "(find-doc \\"ran\\")" "(find-doc \\"range\\")" "(apropos \\"range\\")" "(apropos \\"ran\\")" "(doc apropos)" "(doc ns)"]
+eclipse.preferences.version=1

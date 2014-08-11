@@ -1,6 +1,8 @@
-fpc
+##fpc
 
 Veranstaltung Funktionale Programmierung (in Clojure)
+
+THM Wintersemester 2014/15 Bachelor Informatik CS2333
 
 ## License
 
