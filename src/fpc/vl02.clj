@@ -97,7 +97,8 @@ stop
   (- 1000 334) entspricht (func arg1 arg2)
   
   - ist die Funktion, der Operator
-  1000 und 334 sind die Arguente der Funktion, die Operanden
+  
+  1000 und 334 sind die Argumente der Funktion, die Operanden
   der gesamte Ausdruck entspricht dem Wert, der sich durch das Anwenden der
   Funktion ergibt - also 666 in diesem Beispiel
 )
@@ -123,7 +124,31 @@ stop
 (eval (list + 21 35 12 7))
 ;=> 75
 
+(+ 21 35 12 7)
 ; Vorteil 3: Daten = Code und Code = Daten, genannt Homoikonizität
+
+; Wie wechselt man zwischen Code und Daten hin und her?
+
+; Von Code zu Liste
+(+ 1 2 3 4 5)   ; Code
+'(+ 1 2 3 4 5)  ; ' Quote "zitiert" Code als Liste
+(quote (+ 1 2 3 4 5))
+
+; Von Liste zu Code
+(def l '(+ 1 2 3 4 5))
+l    ; hinter dem Symbol 'l' verbirgt sich eine Liste
+(eval l)  ; wertet die Liste als Code aus
+
+(def l' '(1 2 3 4 5))
+l'
+(eval (conj l' '+))
+
+(list + 1 2)
+'(+ 1 2)
+
+(list + (+ 2 1) 3)
+
+'(+ (+ 2 1) 3)
 
 (comment
   Wir brauchen Namen für Objekte - Funktionen und Daten - unserer Sprache:
@@ -138,7 +163,7 @@ stop
 
 size
 ;=> 2
-; Der Wert 2 der an das Symbol "size" gebunden ist
+; Der Wert 2, der an das Symbol "size" gebunden ist
 ; Man nennt das "root binding" -> globale Umgebung
 
 (* 5 size)
@@ -179,6 +204,8 @@ circumference
                            4  6
 ) 
 
+(def - "hallo")
+-
 (comment
   (Fundamentale) Regeln der Auswertung:
 
@@ -221,11 +248,13 @@ circumference
 
 ; Schöner:
 (defn square
-  "Quadriert x"
+  "Quadriert x -- hier steht die Doku"
   [x]
   (* x x))
 
 (doc square)
+
+(doc list)
 ;-------------------------
 ;fpc.vl01/square
 ;([x])
