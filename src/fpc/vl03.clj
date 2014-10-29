@@ -5,7 +5,7 @@
 (ns fpc.vl03
   (:require [clojure.repl :refer :all]))
 
-stop
+;stop
 
 (comment
   Wir untersuchen jetzt das Substitutionsmodell etwas genauer
@@ -94,12 +94,12 @@ stop
       
       - Strikte / nicht strikte Funktion: Da Sprachen denkbar sind, bei denen der Programmierer 
       festlegen kann, ob eine einzelne Funktion ihre Argumente vor dem Betreten des Rumpfes 
-      auswertet oder nicht, macht es Sinn von strikten und und nicht strikten Funktionen zu reden.
+      auswertet oder nicht, macht es Sinn von strikten und nicht strikten Funktionen zu reden.
       
       - Sprache mit normaler / appliktiver Auswertungsstrategie: Liegt das Verhalten dagegen auf 
       Sprachebene fest, dann spricht man gelegentlich von Sprachen mit einer normalen (normal order) 
-      oder einer applikativen (applicative oder) Auswertungstrategie. 
-      In den Sprachen mit applikativer Auswertungsstartegie sind alle Funktionen strikt und umgekehrt.
+      oder einer applikativen (applicative order) Auswertungstrategie. 
+      In den Sprachen mit applikativer Auswertungsstrategie sind alle Funktionen strikt und umgekehrt.
 
       Nicht strikte Auswertung eröffnet die Möglichkeit mit unendlichen Strukturen zu arbeiten. 
       Doch davon später. " (Thomas Letschert, Skript Nichtprozedurale Programmierung S.33)
@@ -242,6 +242,7 @@ stop
 ;  doesn't evaluate any of the other expressions, otherwise it returns
 ;  the value of the last expr. (and) returns true.
 
+(and (= 2 2) (< 0 1))
 
 (or 1 2)
 ;=> 1
@@ -273,7 +274,7 @@ stop
   Alle Permutationen von drei verschiedenen Zahlen
   (2 3 4) (2 4 3) (3 2 4) (3 4 2) (4 2 3) (4 3 2)
   Mit zwei gleichen Zahlen
-  (2 2 4) (4 4 2)
+  (2 2 4) (4 4 2) (2 4 2)
   Mit drei gleichen Zahlen
   (2 2 2)
 )
