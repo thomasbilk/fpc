@@ -321,3 +321,13 @@
 
 (s2 2 3 4)
 ;=> 25
+
+; Geht auch mit zerlegender Variablenbindung
+(defn s3
+  [x y z]
+  (let [sorted-vec (sort >= [x y z])]
+    (let [[v0 v1 _] sorted-vec]
+      (sum-of-squares v0 v1))))
+
+(s3 2 3 4)
+;=> 25

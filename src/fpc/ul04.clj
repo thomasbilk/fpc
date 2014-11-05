@@ -52,6 +52,38 @@ clojure.core/min
 
 (max-quad 2 1 3)
 
+(defn max-quad1
+  "Summiert die Quadrate der beiden größeren Argumente"
+  [a1 a2 a3]
+  (cond
+    (and (>= a1 a3) (>= a2 a3)) (+ (square a1) (square a2)) 
+    (and (>= a1 a2) (>= a3 a2)) (+ (square a1) (square a3)) 
+    :else                       (+ (square a2) (square a3)) ))
+
+(max-quad1 2 1 3)
+
+(defn max-quad3
+  [x y z]
+  (let [sum-of-squares (fn [a b] (+ (square a) (square b)))]
+    (apply sum-of-squares (drop-last (sort > [x y z])))))
+
+(max-quad3 2 1 3)
+
+(defn max-quad5
+  [x y z]
+  (let [sorted-vec (sort >= [x y z])
+        s-o-s #(+ (square %1) (square %2))]
+    (s-o-s (first sorted-vec) (second sorted-vec))))
+
+(max-quad5 2 1 3)
+
+(defn max-quad4
+  [x y z]
+  (let [[v1 v2] (sort >= [x y z])
+        s-o-s #(+ (square %1) (square %2))]
+    (s-o-s v1 v2)))
+
+(max-quad4 2 1 3)
 ; siehe auch Vorlesung 3
 
 

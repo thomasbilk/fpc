@@ -99,6 +99,8 @@ stop
 (sqrt 2)
 ;=> 1.4142156862745097
 
+(sqrt 16)
+
 (comment
   Frage:
   Die Funktion, wie sie jetzt programmiert ist,
@@ -158,12 +160,12 @@ stop
                         |     |  |
                      sqrt-iter --
                      /     \
-             good-enough   improve
+             good-enough?  improve
                   / \          |
             square  abs       average
             
    Eigentlich ist für den Verwender von sqrt dieser interne Aufbau
-   nicht von Belang: prozedurale Absstraktion - versteckt Interna
+   nicht von Belang: prozedurale Abstraktion - versteckt Interna
    gegenüber dem Verwender.
 
    Tun wir das:
@@ -196,7 +198,7 @@ stop
   Beispiel: In good-enough? sind
   
   guess, a gebundene Variablen,
-  <, -, abs, square freie Variablen
+  <, -, /, abs, square freie Variablen
   
   D.h. good-enough? ist abhängig von der Bedeutung der freien Variablen
 )
@@ -231,6 +233,26 @@ stop
   def erzeugt _immer_ eine Var in der globalen Umgebung - deshalb muss man hier
   let nehmen!
 )  
+
+(def i 1)
+i
+
+(defn my-func
+  []
+  (def i 2)
+  i)
+(my-func)
+i
+
+(def i 1)
+i
+(defn my-func'
+  []
+  (let  [i 2]
+    i))
+
+(my-func')
+i
 
 (comment
   Man beobachte, wie in den Funktionen der Parameter a die Variable a von sqrt
