@@ -1,4 +1,4 @@
-(ns fpc.a304)
+(ns aufgaben.a304)
 
 ; a
 (defn fa

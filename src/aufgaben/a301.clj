@@ -1,4 +1,4 @@
-(ns fpc.a301 )
+(ns aufgaben.a301 )
 
 ; a 
 ((fn [name] (str "Hallo " name)) "Thomas")

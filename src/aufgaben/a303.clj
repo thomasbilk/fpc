@@ -1,5 +1,5 @@
-(ns fpc.a303
-  (:require [fpc.a302 :refer (eval-test)]))
+(ns aufgaben.a303
+  (:require [aufgaben.a302 :refer (eval-test)]))
 
 ; a 
 ;strikt & verzögert

@@ -1,6 +1,4 @@
-(ns
-  ^{:author tom}
-  fpc.a201)
+(ns aufgaben.a201)
 
 ; a)    +
 ;      / \

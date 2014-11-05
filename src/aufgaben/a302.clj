@@ -1,4 +1,4 @@
-(ns fpc.a302)
+(ns aufgaben.a302)
 
 ; a
 (defn square 
