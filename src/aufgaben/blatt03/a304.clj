@@ -1,4 +1,4 @@
-(ns aufgaben.a304)
+(ns aufgaben.blatt03.a304)
 
 ; a
 (defn fa

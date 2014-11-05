@@ -1,5 +1,5 @@
-(ns aufgaben.a303
-  (:require [aufgaben.a302 :refer (eval-test)]))
+(ns aufgaben.blatt03.a303
+  (:require [aufgaben.blatt03.a302 :refer (eval-test)]))
 
 ; a 
 ;strikt & verzögert

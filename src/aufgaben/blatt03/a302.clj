@@ -1,4 +1,4 @@
-(ns aufgaben.a302)
+(ns aufgaben.blatt03.a302)
 
 ; a
 (defn square 

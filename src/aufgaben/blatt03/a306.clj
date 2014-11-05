@@ -1,4 +1,4 @@
-(ns aufgaben.a306)
+(ns aufgaben.blatt03.a306)
 
 (defn p [] (p))
 (defn test

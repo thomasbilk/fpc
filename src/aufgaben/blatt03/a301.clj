@@ -1,4 +1,4 @@
-(ns aufgaben.a301 )
+(ns aufgaben.blatt03.a301 )
 
 ; a 
 ((fn [name] (str "Hallo " name)) "Thomas")

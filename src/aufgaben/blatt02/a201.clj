@@ -1,4 +1,4 @@
-(ns aufgaben.a201)
+(ns aufgaben.blatt02.a201)
 
 ; a)    +
 ;      / \

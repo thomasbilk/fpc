@@ -1,4 +1,4 @@
-(ns aufgaben.a0302x)
+(ns aufgaben.blatt03.a0302x)
 
 (def fa (fn [x] ((fn [x] (+ x 1)) (+ x 2))))
 
