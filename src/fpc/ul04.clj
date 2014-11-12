@@ -146,7 +146,7 @@ clojure.core/min
   
 
 ; (b) Schreiben Sie eine Funktion, die die Zahl der reellen Lösungen 
-; der "Mitternachstformel" aus (a) ermittelt.
+; der "Mitternachtsformel" aus (a) ermittelt.
 
 (defn zahl-loesungen
   [a b c]

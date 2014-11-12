@@ -302,12 +302,15 @@ stop
   [z s]
   "Endrekursive Variante für die Berechnung der Pascal'schen Zahl
    an Zeile z und Spalte s."
-   (let [n (dec z) k (dec s)]
-     (loop [current-n n current-k k acc 1]
-       (cond 
-         (or (< z 1) (< z s) (< s 1)) 0
-         (or (= current-n 0) (= current-k 0) (= current-k current-n)) acc
-         :else (recur (dec current-n) (dec current-k) (/ (* acc current-n) current-k))))))
+  (if 
+    (or (< z 1) (< z s) (< s 1)) 0
+    (let [n (dec z) k (dec s)]
+      (loop [current-n n current-k k acc 1]
+        (if 
+          (or (= current-n 0) (= current-k 0) 
+              (= current-k current-n)) acc
+          (recur (dec current-n) (dec current-k) 
+                 (/ (* acc current-n) current-k)))))))
 
 (pascal 1 1)
 ;=> 1
