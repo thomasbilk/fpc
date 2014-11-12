@@ -169,7 +169,8 @@ stop
 (factorial 6)
 ;=> 720
 
-(factorial 1000N)
+(factorial 5000N)
+(fact2 5000N)
 ;=> eine sehr große Zahl!!
 
 ;; Noch eine andere Variante der Implementierung der Endrekursion
@@ -205,7 +206,7 @@ stop
                            
   Wir wollen eine Funktion (pascal zeile spalte) schreiben, 
   die die entsprechende Pascal'sche Zahl berechnet, dabei fängt
-  die Zählung von Zeile und Spalte jeweilse bei 1 an.
+  die Zählung von Zeile und Spalte jeweils bei 1 an.
   
   Beispiele
   (pascal 5 1) ;=> 1
@@ -217,7 +218,7 @@ stop
 ;; (pascal zeile spalte) berechnet
 
 (comment
-                  0 falls z < 1 oder s > z
+                  0 falls z < 1 oder s <1 oder s > z
 
   pascal(z s)  =  1 falls z = 1 oder z = s  
 
@@ -258,7 +259,7 @@ stop
 (pascal1 5 6)
 ;=> 0
 
-
+(pascal1 1000 500)
 ;; Aber: diese Lösung ist nicht endrekursiv.
 ;; Können wir die Berechnung endrekursiv machen?
 
@@ -331,3 +332,7 @@ stop
 
 (pascal 5 6)
 ;=> 0
+
+(pascal 100 50)
+(pascal 1000 500)
+(pascal 10000 500)
