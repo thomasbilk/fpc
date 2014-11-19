@@ -103,12 +103,27 @@ stop
 (defn prime? 
   "Ist n eine Primzahl?"
   [n]
-  (if (even? n) 
-    false
-    (loop [i 3]
-        (if (> (* i i) n) true
-          (if (zero? (mod n i)) false
-            (recur (+ i 2)))))))
+  (cond
+    (= 2 n) true
+    (even? n) false
+    :else (loop [i 3]
+            (if (> (* i i) n) true
+              (if (zero? (mod n i)) false
+                (recur (+ i 2)))))))
+
+(defn prime?
+  [n]
+  (cond 
+    (= 2 n) true
+    (even? n) false
+    :else
+    (let [von 3
+              bis (inc (Math/sqrt n))
+              pred #(zero? (mod n %))]
+          (empty? (filter pred (range von bis 2))))))
+
+    
+(prime? 2)
 
 (prime? 4)
 ;=> false

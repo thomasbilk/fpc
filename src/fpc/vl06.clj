@@ -3,7 +3,6 @@
 ; (c) 2014 by Burkhardt Renz, THM
 
 (ns fpc.vl06
-  (:import (javax.lang.model.util Elements))
   (:require [clojure.repl :refer :all]))
 
 stop
@@ -35,6 +34,9 @@ stop
 
 (sum-integers 1 10)
 ;=> 55
+
+(sum-integers 2 10)
+;=> 54
 
 ; Eine Funktion, die die Summe der Kubikzahlen eines Bereichs berechnet:
 
@@ -70,8 +72,10 @@ stop
     (+ (/ 1.0 (* a (+ a 2))) (pi-sum (+ a 4) b))))
   
 
-(* 8 (pi-sum 1 100))
+(* 8 (pi-sum 1 10000))
 ;=> 3.1215946525910105 
+
+Math/PI
 
 (comment
   
@@ -101,17 +105,31 @@ stop
     (+ (term a) (sum term (next a) next b)))) 
     
 
+(identity 42)
+;=> 42
+
 ; sum-integers
 (defn sum-integers
   [a b] (sum identity a inc b))
 
+sum-integers
+
 (sum-integers 1 10)
 ;=> 55
+
+(sum-integers 2 10)
+
+(sum identity 1 inc 10)
 
 ; sum-cubes
 (defn sum-cubes
   [a b] (sum cube a inc b))
   
+(defn sum-cubes
+  [a b] (sum #(* % % %) a inc b))
+
+(defn sum-cubes
+  [a b] (sum (fn [x] (* x x x)) a inc b))
 
 (sum-cubes 1 10)
 ;=> 3025
@@ -121,6 +139,10 @@ stop
   (let [pi-term (fn [x] (/ 1.0 (* x (+ x 2))))
         pi-next (fn [x] (+ x 4))]
     (sum pi-term a pi-next b)))
+
+(defn pi-sum
+  [a b]
+  (sum #(/ 1.0 (* % (+ % 2))) a #(+ % 4) b))
 
 (* 8 (pi-sum 1 100))
 ;=> 3.1215946525910105
@@ -140,8 +162,7 @@ stop
   
 )  
 
-
-;; Currying und partial on Clojure
+;; Currying und partial in Clojure
 
 (comment
   
@@ -244,6 +265,12 @@ stop
 (func4 2 3 4 5 6)
 ;=> 4
 
+(defn  x
+  [a b]
+  (sum (constantly 2) a inc b))
+
+(x 1 10)
+;=> 20
 
 ;; complement
 
@@ -258,6 +285,10 @@ stop
 
 ((complement pos?) 2)
 ;=> false
+
+(not (pos? 2))
+
+(complement pos?)
 
 ;; juxt
 ;; juxtaposition = Nebeneinanderstellung
