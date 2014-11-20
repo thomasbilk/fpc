@@ -122,7 +122,26 @@ stop
               pred #(zero? (mod n %))]
           (empty? (filter pred (range von bis 2))))))
 
-    
+; besser
+(defn prime?
+  [n]
+  (cond
+    (= n 2) true
+    (zero? (mod n 2)) false
+    :else  (let [von 3
+                 bis (inc (Math/sqrt n))
+                 pred (fn [i] (pos? (mod n i)))
+                 ;pred (fn [i] (if (> i 4) (/ i 0) (pos? (mod n i))))
+                 ]
+             (empty? (drop-while pred (range von bis 2))))))
+
+; bei dieser Lösung wird das Prädikat nur solange ausgewertet
+; bis der erste Teiler gefunden wird.
+
+; Man sieht das daran, wenn man das Prädikat so ändert:
+; wie oben als auskommentierte Variante
+; dann entsteht bei 99993 keine Exception, weil 3 als Teiler gefunden wird
+
 (prime? 2)
 
 (prime? 4)
