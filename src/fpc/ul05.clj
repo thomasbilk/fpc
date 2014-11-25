@@ -162,3 +162,104 @@ stop
 (prime? 99993)
 ;=> false
 
+; Aufgabe 6 Pascal'sche Zahlen
+; Rekursive Funktion (pascal row index) zur Berechnung
+; der Pascalschen Zahl
+
+(defn pascal
+  "Value in Pascal's triangle in row r at index i (counting beginning with 1)."
+  [r i]
+  {:pre [(integer? r) (integer? i) (<= 1 i r)]}
+  (if (or (= i 1) (= i r))
+    1
+    (+ (pascal (dec r) (dec i)) (pascal (dec r) i))))
+
+
+(pascal 1 1)
+;=> 1
+
+(pascal 0 1)
+;=> AssertionError Assert failed: (<= 1 i r)
+
+(pascal 2 1)
+;=>  1
+
+(pascal 2 2)
+;=> 1
+
+(pascal 2 3)
+;=> AssertionError Assert failed: (<= 1 i r)
+
+(pascal 3 1)
+;=> 1
+
+(pascal 3 2)
+;=> 2
+
+(pascal 3 3)
+;=> 1
+
+(pascal 4 2)
+;=> 3
+
+(pascal 5 3)
+;=> 6
+
+;; Endrekursive Variante
+(comment
+  Für die Binomialkoeffizienten gibt es eine Formel:
+
+    n
+  (   ) = Produkt i = 1 bis k  (n - k + i) / i
+    k
+
+  Beispiel:
+
+                   4
+  pascal (5 3) = (   )  und das ist nach obiger Formel
+                   2
+
+  (4-2+1)/1 * (4-2+2)/2 = 3/1 * 4/2 = 3 * 2 = 6
+
+  oder von hinten her aufziehen:
+
+  ((1 * 4)/2 * 3)/1    n und k entsprechend runterzählen
+
+  Das können wir verwenden:
+)
+
+(defn pascal
+  [z s]
+  "Endrekursive Variante für die Berechnung der Pascal'schen Zahl
+   an Zeile z und Spalte s."
+   (let [n (dec z) k (dec s)]
+     (loop [current-n n current-k k acc 1]
+       (cond
+         (or (< z 1) (< z s) (< s 1)) 0
+         (or (= current-n 0) (= current-k 0) (= current-k current-n)) acc
+         :else (recur (dec current-n) (dec current-k) (/ (* acc current-n) current-k))))))
+
+(pascal 1 1)
+;=> 1
+
+(pascal 5 1)
+;=> 1
+
+(pascal 5 2)
+;=> 4
+
+(pascal 5 3)
+;=> 6
+
+(pascal 5 4)
+;=> 4
+
+(pascal 5 5)
+;=> 1
+
+(pascal 5 0)
+;=> 0
+
+(pascal 5 6)
+;=> 0
+
