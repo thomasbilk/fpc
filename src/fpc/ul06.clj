@@ -19,6 +19,9 @@ stop
 (minus2 0)
 ; => -2
 
+(defn minus2
+  [n]
+  ((comp dec dec) n))
 
 ; (b) Gegeben sei die Funktion (defn sq[x] (* x x)). Schreiben Sie eine Funktion sqplus,
 ;     die eine Zahl um 1 erhöht und dann quadriert. Im Code darf + nicht vorkommen.
@@ -44,7 +47,7 @@ stop
 ; ((n-fach quadrat 3) 5)
 ; => 390625
 
-; Hinweis: Denken Sie an comp
+; Hinweis: Denken Sie an Rekursion und comp
 
 (defn n-fach 
   [f n]
@@ -58,6 +61,20 @@ stop
 
 ((n-fach #(* % %) 3) 5)
 ;=> 390625
+
+; Das geht auch schoener:
+(defn n-fach
+  [f n]
+  (reduce comp (repeat n f)))
+
+; oder
+(take 10 (iterate inc 5))
+(nth (iterate inc 5) 3)
+(nth (iterate #(* % %) 5) 3)
+
+(defn n-fach
+  [f n]
+  #(nth (iterate f %) n))
 
 ; Aufgabe 3
 

@@ -252,7 +252,9 @@ Math/PI
 
 (/ 22M 7)
 ;=> ArithmeticException Non-terminating decimal expansion; no exact representable decimal result.  
-; Exception stammt von java-math.BigDecimal
+; Exception stammt von java.math.BigDecimal
+
+(type 1.2M)
 
 ; kann man in Clojure leicht umschiffen:
 (with-precision 10 (/ 22M 7))
@@ -299,6 +301,8 @@ Math/PI
 (== 1 "foo")
 ;=> ClassCastException java.lang.String cannot be cast to java.lang.Number
 
+(= 1 "foo")
+;=> false
 
 ;; 2 Wahrheitswerte
 
@@ -422,10 +426,10 @@ Math/PI
 ;=> "42 43"
 
 (prn-str 42)
-;=> "42\r\n"
+;=> "42\n"
 
 (prn-str 42 43 44)
-;=> "42 43 44\r\n"
+;=> "42 43 44\n"
 
 (print-str 42 43 44)
 ;=> "42 43 44"
@@ -438,6 +442,8 @@ Math/PI
 
 (str/blank? "     ")
 ;=> true
+
+(clojure.string/blank? "    ")
 
 (str/capitalize "hallo")
 ;=> "Hallo"
@@ -487,6 +493,11 @@ Math/PI
 ; Sie werten zu dem aus, wofür sie stehen
 s
 
+(def s')
+
+s'
+;=> Unbound
+
 (def f #(+ %1 %2))
 ;=> #'fpc.vl07/f
 
@@ -503,13 +514,15 @@ f
 
 ; Man kann die Auswertung von Symbolen verhindern, indem man sie quotiert
 (quote (f 1 41))
-;=> 
+;=> (f 1 41)
 
 (quote s)
 ;=> s
 
 's
 ;=> s
+
+'(f 1 41)
 
 (symbol "s'")
 ;=> s'

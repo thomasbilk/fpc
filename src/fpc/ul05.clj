@@ -166,6 +166,9 @@ stop
 ; Rekursive Funktion (pascal row index) zur Berechnung
 ; der Pascalschen Zahl
 
+; In der Vorlesung vl05 möglicherwiese bereits gemeinsam
+; erarbeitet
+
 (defn pascal
   "Value in Pascal's triangle in row r at index i (counting beginning with 1)."
   [r i]
@@ -219,11 +222,11 @@ stop
   pascal (5 3) = (   )  und das ist nach obiger Formel
                    2
 
-  (4-2+1)/1 * (4-2+2)/2 = 3/1 * 4/2 = 3 * 2 = 6
+;  (4-2+1)/1 * (4-2+2)/2 = 3/1 * 4/2 = 3 * 2 = 6
 
   oder von hinten her aufziehen:
 
-  ((1 * 4)/2 * 3)/1    n und k entsprechend runterzählen
+;  ((1 * 4)/2 * 3)/1    n und k entsprechend runterzählen
 
   Das können wir verwenden:
 )

@@ -30,6 +30,8 @@ stop
 (= (quote (1 2 3)) l1)
 ;=> true
 
+l1
+
 ; Quote und Unquote
 '(1 2 (- 5 2))
 ;=> (1 2 (- 5 2))
@@ -65,6 +67,7 @@ l2
 
 ;; 1.3 Arbeiten mit Listen
 
+l3
 (count l3)
 ;=> 5
 
@@ -88,6 +91,7 @@ l2
 ;=> 2
 
 ; "Hinzufügen" von Elementen
+l1
 (conj l1 4)
 ;=> (4 1 2 3) d.h. eine Liste "wächst" vorne
 
@@ -118,8 +122,14 @@ st'
 (def l4 '(let [p1 true p2 false] (or p1 p2)))
 ;=> #'fpc.vl08/l4
 
+l4
 (eval l4)
 ;=> true
+
+(def l4' '(let [p1 false p2 false] (or p1 p2)))
+
+l4'
+(eval l4')
 
 ;; 2 Vektoren
 
