@@ -168,6 +168,7 @@ l1
 (= v1 (vector 1 2 3))
 ;=> true
 
+l1
 (vec l1)              ; Vektor aus Kollektion erzeugen
 ;=> [1 2 3]
 
@@ -270,11 +271,14 @@ v1
 
 ;; 3.1 Literale Darstellung
 
-(def m1 {:a 1 :b 2 :c 3})
+(def m1 {:a 1, :b 2, :c 3})
 ;=> #'fpc.vl08/m1
 
 m1
 ;=> {:c 3, :b 2, :a 1}
+
+{:a 1, :b 2, :c 3, :a 2}
+;=> Exception
 
 (type m1)
 ;=> clojure.lang.PersistentHashMap
@@ -286,6 +290,9 @@ m1
 
 (hash-map)
 ;=> {}
+
+(hash-map :a 1, :b 2, :c 3, :a 2)
+
 
 ; Warum kann man nicht map als Name der Funktion nehmen, die eine Map erzeugt?
 
@@ -327,8 +334,12 @@ m4
 (type m4)
 ;=> clojure.lang.PersistentArrayMap  ;; überraschend
 
+(def m5 (zipmap [:a :b :c :d] [1 2 3 4 5]))
+m5
+
 ;; 3.3 Arbeiten mit Maps
 
+m1
 (count m1)
 ;=> 3
 
@@ -385,7 +396,7 @@ m1
 
 ;; 4.1 Literale Darstellung
 
-(def s1 #{ 1 2 3 4 5 6 7 8 9})
+(def s1 #{1 2 3 4 5 6 7 8 9})
 ;=> #'fpc.vl08/s1
 
 (type s1)
@@ -507,6 +518,9 @@ s2
 (set/project r1  [:a])
 ;=> #{{:a 1} {:a 3} {:a 2}}
 
+(set/project (set/join r1 r2)  [:a])
+(set/project (set/join r1 r2)  [:a :b])
+
 ; Restriktion
 
 (set/select #(= 1 (:b %)) r1)
@@ -563,7 +577,7 @@ s2
   Siehe Higher Order Blog: Understanding Clojure's PersistentVector implementation
   "http://blog.higher-order.net/2009/02/01/understanding-clojures-persistentvector-implementation.html"
 
-  Die grundlegenden Idden stammen von
+  Die grundlegenden Ideen stammen von
   Phil Bagwell: Ideal Hash Trees sowie
   Chris Okasaki: Purely Functional Data Structures
 
@@ -586,6 +600,8 @@ v1
 
 (v1 1)
 ;=> 2
+
+(["hallo" "Clojure"] 0)
 
 (get v1 1)
 ;=> 2
@@ -647,7 +663,7 @@ m1
 ; alle folgenden Beispiele mit let gehen ebenso mit loop und Parametern von Funktionen
 ; Beispiele aus Kamphausen/Kaiser S.66ff
 
-; angenoomen, wir wollen die Zahlen in einem Vektor
+; angenommen, wir wollen die Zahlen in einem Vektor
 ; als String ausgeben:
 ; bisher
 (let [coll [1 2 3]]
@@ -670,6 +686,9 @@ m1
 ;=> (1 2 (3 4 5))
 
 (let [[a b [c d e]] [1 2 [3 4 5]]]
+  #{a b c d e})
+
+(let [[a b [c d e]] [1 2 [3 4 5]]]
   (list a b c d e))
 ;=> (1 2 3 4 5)
 
@@ -682,6 +701,9 @@ m1
 (let [[a b c] "123"]
   (str a " " b " " c))
 ;=> "1 2 3"
+
+(let [[_ b c] "123"]
+  (str b " " c))
 
 (let [[a b c] "123"]
   (list  a b c))
@@ -749,6 +771,7 @@ c1
 (meta c1)
 ;=> {:type :rectangular}
 
+(type [1 1])
 (type c1)
 ;=> :rectangular
 
