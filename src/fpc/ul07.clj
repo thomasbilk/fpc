@@ -23,6 +23,14 @@ stop
         (conj result (* x x))
         (recur (inc curr) (conj result (* x x))))))))
 
+(defn vsquare
+  [vec]
+  (let [n (count vec)]
+    (loop [curr 0, result [] ]
+      (let [x (nth vec curr 0)]
+        (if (= curr n)
+          result
+          (recur (inc curr) (conj result (* x x))))))))
 (vsquare [1 2 3])
 ;=> [1 4 9]
 
@@ -37,6 +45,11 @@ stop
       (if (= curr n)
         (conj result (inc x))
         (recur (inc curr) (conj result (inc x))))))))
+
+; Offenbar hat diese Funktion denselben Aufbau wie doe vorherige,
+; also kann man eine Funktion höherer Ordnung dafür nehmen.
+
+;TODO: tue das!
 
 (vinc [1 2 3])
 ;=> [2 3 4]
