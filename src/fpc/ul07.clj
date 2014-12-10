@@ -104,6 +104,9 @@ stop
 
 ; (b) Schreiben Sie eine Funktion search-author, die in der Bücherliste nach Büchern eines Autors sucht
 
+; Das geht natürlich viel einfacher, wenn wir Funktionen für seqs verwenden
+; siehe nächstes Übungsblatt
+
 (defn search-author
   [books name]
   (let [cnt (dec (count books))]

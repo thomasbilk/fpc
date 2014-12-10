@@ -88,7 +88,7 @@ stop
 (comment
   Das Auswertungsmodell, das wir bisher bei Clojure kennengelernt haben, ist _strikte_ Auswertung,
   d.h. zuerst werden die Parameter ausgewertet, dann die Werte an die Funktion
-  übergeben. Man nennt diese Auswertungsstrategi auch "eager".
+  übergeben. Man nennt diese Auswertungsstrategie auch "eager".
   
   Dem steht gegenüber die verzögerte Auswertung ("lazy"), die einen Wert erst dann erzeugt,
   wenn er auch wirklich gebraucht wird.
@@ -159,7 +159,9 @@ r
 ; Nun wollen wir beobachten, wie die Zufallszahlen erzeugt werden:
 
 (def rands (random-ints 49))
-;=> #'fpc.vl09/rands 
+;=> #'fpc.vl09/rands
+
+(realized? rands)
 
 ; es gibt keine Meldung, dass eine Zufallszahl erzeugt wurde
 ; wir sehen also, dass keine Auswertung der Funktion erfolgt ist
@@ -344,11 +346,15 @@ r
 
 ; geht auch andersrum
 (remove even? (range 20))
-;=> (1 3 5 7 9 11 13 15 17 19) 
+;=> (1 3 5 7 9 11 13 15 17 19)
+
+(filter odd? (range 20))
 
 ; Folge elementweise "ändern"
 (map inc (range 20))
 ;=> (1 2 3 4 5 6 7 8 9 10 ...)
+
+(map + (range 20) (range 20))
 
 ; Folge sukzessive zusammenfalten
 (reduce + [1 2 3 4])
