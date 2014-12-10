@@ -5,8 +5,6 @@
 (ns fpc.vl08
   (:require [clojure.repl :refer :all]))
 
-stop
-
 ;; 1 Listen
 
 (comment
@@ -131,6 +129,8 @@ l4
 l4'
 (eval l4')
 
+stop
+
 ;; 2 Vektoren
 
 ;; 2.1 Literale Darstellung
@@ -140,6 +140,9 @@ l4'
 
 v1
 ;=> [1 2 3]
+
+; Vektoren können Daten unterschiedlichen Typs
+; enthalten:
 
 (def v2 [1 "Hallo" '(1 2 3)])
 ;=> #'fpc.vl08/v2
@@ -153,6 +156,7 @@ v2
 (vector? v2)
 ;=> true
 
+l1
 (vector? l1)
 ;=> false
 
@@ -164,6 +168,7 @@ v2
 (= v1 (vector 1 2 3))
 ;=> true
 
+l1
 (vec l1)              ; Vektor aus Kollektion erzeugen
 ;=> [1 2 3]
 
@@ -185,7 +190,7 @@ v2
 ;=> IndexOutOfBoundsException 
 
 (nth v1 4 "gibt's hier nicht")
-;=> IndexOutOfBoundsException 
+;=> "Gibt's hier nicht"
 
 (get v1 0)
 ;=> 1
@@ -199,6 +204,7 @@ v2
 ; in geschachtelten Vektoren kann man einen "Indexpfad" angeben
 (get-in [1 [11 12] 2 [21 22]] [1 0])
 ;=> 11
+; 11 ist das Element mit Index 0 im Vektor am Index 1
 
 ; "Hinzufügen" von Elementen
 (conj v1 4)
@@ -265,11 +271,14 @@ v1
 
 ;; 3.1 Literale Darstellung
 
-(def m1 {:a 1 :b 2 :c 3})
+(def m1 {:a 1, :b 2, :c 3})
 ;=> #'fpc.vl08/m1
 
 m1
 ;=> {:c 3, :b 2, :a 1}
+
+{:a 1, :b 2, :c 3, :a 2}
+;=> Exception
 
 (type m1)
 ;=> clojure.lang.PersistentHashMap
@@ -282,6 +291,9 @@ m1
 (hash-map)
 ;=> {}
 
+(hash-map :a 1, :b 2, :c 3, :a 2)
+
+
 ; Warum kann man nicht map als Name der Funktion nehmen, die eine Map erzeugt?
 
 (hash-map :key1 1 :key2 2 :key1 0)
@@ -290,14 +302,19 @@ m1
 ; aber
 {:key1 1 :key2 2 :key1 0}
 ;=> IllegalArgumentException Duplicate key: :key1
+; warum ist das so?
 
 (def m2 (array-map :key1 1 :key2 2))
 ;=>
-#'fpc.vl08/m2 
+#'fpc.vl08/m2
 
 (type m2)
 ;=> clojure.lang.PersistentArrayMap
-; geeignet für kleine Maps, implementiert als Array
+; ArrayMap versus HashMap
+; ArrayMaps sind implementiert als Array von Paaren key - value - und hat damit
+; eine fixe Reihenfolge der Einträge qua Konstruktion.
+; Clojure garantiert aber diese Reihenfolge nur, solange kein assoc
+; gemacht wird -- dann wird eventuell eine HashMap daraus.
 
 (def m3 (sorted-map :key2 2 :key1 1))
 ;=> #'fpc.vl08/m3
@@ -317,8 +334,12 @@ m4
 (type m4)
 ;=> clojure.lang.PersistentArrayMap  ;; überraschend
 
+(def m5 (zipmap [:a :b :c :d] [1 2 3 4 5]))
+m5
+
 ;; 3.3 Arbeiten mit Maps
 
+m1
 (count m1)
 ;=> 3
 
@@ -375,7 +396,7 @@ m1
 
 ;; 4.1 Literale Darstellung
 
-(def s1 #{ 1 2 3 4 5 6 7 8 9})
+(def s1 #{1 2 3 4 5 6 7 8 9})
 ;=> #'fpc.vl08/s1
 
 (type s1)
@@ -497,6 +518,9 @@ s2
 (set/project r1  [:a])
 ;=> #{{:a 1} {:a 3} {:a 2}}
 
+(set/project (set/join r1 r2)  [:a])
+(set/project (set/join r1 r2)  [:a :b])
+
 ; Restriktion
 
 (set/select #(= 1 (:b %)) r1)
@@ -508,7 +532,7 @@ s2
 
 ;; 5 Persistenz der Datenstrukturen in Clojure
 
-(comment
+#_(comment
   
   Wir haben gesehen, dass alle Datenstrukturen unveränderlich sind.
   Dies ist eine ganz wesentliche Eigenschaft für die funktionale
@@ -526,7 +550,7 @@ s2
   124, February 1989
 )
 
-(comment
+#_(comment
   
   Naiv kann man dies erreichen, indem man bei jeder "Änderung" eine Kopie
   macht.
@@ -551,11 +575,17 @@ s2
   
   Clojure verwendet für Vektoren und Maps Bäume. 
   Siehe Higher Order Blog: Understanding Clojure's PersistentVector implementation
+  "http://blog.higher-order.net/2009/02/01/understanding-clojures-persistentvector-implementation.html"
+
+  Die grundlegenden Ideen stammen von
+  Phil Bagwell: Ideal Hash Trees sowie
+  Chris Okasaki: Purely Functional Data Structures
+
 )
 
 ;; 6 Datenstrukturen als Funktionen
 
-(comment
+#_(comment
   
   Eine für die elegante Programmierung wichtige Eigenschaften von Clojures Datenstrukturen
   besteht darin dass man Datenstrukturen und Keywords als Funktionen
@@ -570,6 +600,8 @@ v1
 
 (v1 1)
 ;=> 2
+
+(["hallo" "Clojure"] 0)
 
 (get v1 1)
 ;=> 2
@@ -619,11 +651,11 @@ m1
 
 ;; 7 Zerlegende Variablenbindung
 
-(comment
+#_(comment
   
-  In Clojure arbeitet man viel mit persistenten Datenstrukturen, dazu braucht man
-  natürlich Zugriff auf ihre Bestandteil. Dies geht sehr elegant mit der
-  Technik der
+  In Clojure arbeitet man viel mit persistenten Datenstrukturen,
+  dazu braucht man natürlich Zugriff auf ihre Bestandteile.
+  Dies geht sehr elegant mit der Technik der
   
   zerlegenden Variablenbindung ("destructuring")
 )  
@@ -631,11 +663,17 @@ m1
 ; alle folgenden Beispiele mit let gehen ebenso mit loop und Parametern von Funktionen
 ; Beispiele aus Kamphausen/Kaiser S.66ff
 
+; angenommen, wir wollen die Zahlen in einem Vektor
+; als String ausgeben:
 ; bisher
 (let [coll [1 2 3]]
   (str (coll 0) " " (coll 1) " " (coll 2)))
 ;=> "1 2 3"
-  
+
+; wie man sieht, ist es relativ mühsam, die
+; Bestandteile des Vektors "auszupacken"
+
+; Das geht in Clojure viel einfacher:
 ; Zerlegung bei der Bindung der Kollektion an die Parameter
 (let [[a b c] [1 2 3]]
   (str a " " b " " c))
@@ -646,6 +684,9 @@ m1
 (let [[a b [c d e]] [1 2 [3 4 5]]]
   (list a b (list c d e)))
 ;=> (1 2 (3 4 5))
+
+(let [[a b [c d e]] [1 2 [3 4 5]]]
+  #{a b c d e})
 
 (let [[a b [c d e]] [1 2 [3 4 5]]]
   (list a b c d e))
@@ -661,6 +702,9 @@ m1
   (str a " " b " " c))
 ;=> "1 2 3"
 
+(let [[_ b c] "123"]
+  (str b " " c))
+
 (let [[a b c] "123"]
   (list  a b c))
 ;=> (\1 \2 \3)
@@ -671,7 +715,7 @@ m1
   (str a " " b " " c))
 ;=> "1 2 3"
 
-; lokalen Symbole mit den Namen der Keys
+; lokale Symbole mit den Namen der Keys
 (let [{:keys [x y]} {:x 1 :y 2 :z 3}]
   (str x " " y ))
 ;=> "1 2"
@@ -695,23 +739,26 @@ m1
 (let [{x :x, y :y} {:x 1}]
   (list x y))
 ;=> (1 nil)
+; hier fehlt :y
 
 (let [{x :x, y :y :or {x 100 y 101}} {:x 1}]
   (list x y))
 ;=> (1 101)
+; hier hat :y einen Default-Wert
 
 ;; 8 Benutzerdefinierte Datentypen
 
-(comment
+#_(comment
   
-  Es ist in Clojure durchaus üblich, dass man die vorhandenen Datenstrukturen
-  als Implementierung für benutzerdefinierte Datentypen verwendet.
+  Es ist in Clojure durchaus üblich, dass man die vorhandenen
+  Datenstrukturen als Implementierung für benutzerdefinierte
+  Datentypen verwendet.
   
-  So kann man z.B. Komplexe Zahlen in der Implementierung durch 2-stellige
-  Vektoren [re im] repräsentieren.
+  So kann man z.B. Komplexe Zahlen in der Implementierung
+  durch 2-stellige Vektoren [re im] repräsentieren.
   
-  Was aber, wenn man auch eine Darstellung als Polarkoordinaten unterstützen
-  möchte?
+  Was aber, wenn man auch eine Darstellung als Polarkoordinaten
+  unterstützen möchte?
   
   Man kann dann Metadaten mit einem Typ verwenden.
 )
@@ -724,6 +771,7 @@ c1
 (meta c1)
 ;=> {:type :rectangular}
 
+(type [1 1])
 (type c1)
 ;=> :rectangular
 
@@ -732,7 +780,7 @@ c1
 (type c2)
 ;=> :polar
 
-(comment
+#_(comment
   
   Man kann aber auch eine interne Darstellung als Map wählen:
   
