@@ -10,12 +10,12 @@
 (fib1 16)
 
 (defn fib2 [n]
-  (loop [actn n, a 0, b 1]
-    (if (= actn 0)
-      a
-      (recur (dec actn) b (+ a b)))))
+  (loop [cur n a 0N b 1N]
+    (if (= cur 0) a
+        (recur (dec cur) b (+ a b)))))
 
 (fib2 3)
 (fib2 16)
 (fib2 42)
-(fib2 70M)
+(fib2 70)
+(fib2 100)
