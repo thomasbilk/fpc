@@ -1,4 +1,7 @@
 (ns aufgaben.blatt08.aufgabe02)
 
-(defn char-cnt [ch str]
-  )
+(defn char-cnt [ch inp]
+  (count (filter #(= ch %) (seq inp))))
+
+(char-cnt \e "Hallo Freunde wie geht es euch?")
+(char-cnt \x "Hallo Freunde wie geht es euch?")
