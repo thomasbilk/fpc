@@ -1,6 +1,6 @@
 (ns aufgaben.blatt08.aufgabe06)
 
-(defn fib [n]
-  (loop [cur n a 0N b 1N]
-    (if (= cur 0) a
-      (recur (dec cur) b (+ a b)))))
+(defn fib-seq []
+  (map first (iterate (fn [[a b]] [b (+ a b)]) [1 1])))
+
+(take 20 (fib-seq))
