@@ -1,9 +1,10 @@
 (ns aufgaben.blatt08.aufgabe03)
 
 (defn sumfunc [f n]
-  (reduce f (range (inc n))))
+  (reduce + (map f (range (inc n)))))
 
-(defn sumadd [n] (sumfunc + n))
+(defn sum [n] (sumfunc identity n))
 
-(sumadd 10)
-(sumadd 100)
+(sum 10)
+(sum 100)
+(sum 555)
