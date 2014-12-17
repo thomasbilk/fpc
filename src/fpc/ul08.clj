@@ -60,21 +60,21 @@ stop
 
 (defn vsquare
   [vec]
-  (into [] (map #(* % %) vec)))
+  (mapv #(* % %) vec))
 
 (vsquare [1 2 3])
 ;=> [1 4 9]
 
 (defn vinc
   [vec]
-  (into [] (map inc vec)))
+  (mapv inc vec))
 
 (vinc [1 2 3])
 ;=> [2 3 4]
 
 (defn vmult
   [vec n]
-  (into [] (map #(* n %) vec)))
+  (mapv #(* n %) vec))
 
 (vmult [1 2 3] 2)
 ;=> [2 4 6]
