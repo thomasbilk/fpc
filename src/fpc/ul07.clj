@@ -49,7 +49,18 @@ stop
 ; Offenbar hat diese Funktion denselben Aufbau wie doe vorherige,
 ; also kann man eine Funktion höherer Ordnung dafür nehmen.
 
-;TODO: tue das!
+(defn vecfun
+  [fun vec]
+  (let [n (dec (count vec))]
+    (loop [curr 0, result [] ]
+      (let [x (nth vec curr)]
+        (if (= curr n)
+          (conj result (fun x))
+          (recur (inc curr) (conj result (fun x))))))))
+
+(defn vinc
+  [vec]
+  (vecfun inc vec))
 
 (vinc [1 2 3])
 ;=> [2 3 4]
@@ -65,6 +76,11 @@ stop
       (if (= curr cnt)
         (conj result (* x n))
         (recur (inc curr) (conj result (* x n))))))))
+
+; oder mit vecfun:
+(defn vmult
+  [vec n]
+  (vecfun (partial * n) vec))
 
 (vmult [1 2 3] 2)
 ;=> [2 4 6]
@@ -109,12 +125,12 @@ stop
 
 (defn search-author
   [books name]
-  (let [cnt (dec (count books))]
+  (let [cnt (count books)]
     (loop [n 0, result []]
-      (let [book (nth books n)]
-        (if (= n cnt)
-          (if (= (:author book) name) (conj result book) result)
-          (recur (inc n) (if (= (:author book) name) (conj result book) result)))))))
+        (if (= n cnt) result
+        (let [book (nth books n)
+              author (:author book)]
+          (recur (inc n) (if (= author name) (conj result book) result)))))))
 
 (search-author books "Brian Moore")
 
@@ -122,11 +138,10 @@ stop
 
 (defn get-author-set
   [books]
-  (let [cnt (dec (count books))]
+  (let [cnt (count books)]
     (loop [n 0, result #{}]
-      (let [book (nth books n)]
-        (if (= n cnt)
-          (conj result (:author book))
+        (if (= n cnt) result
+          (let [book (nth books n)]
           (recur (inc n) (conj result (:author book))))))))
 
 (get-author-set books)
@@ -134,6 +149,10 @@ stop
 ; (d) Sortieren Sie die Menge der Autoren
 
 (sort (get-author-set books))
+
+(apply sorted-set (get-author-set books))
+
+; Was ist der Unterschied??
 
 ; Aufgabe 3 Rechtecke
 
