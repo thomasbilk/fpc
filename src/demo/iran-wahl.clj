@@ -1,4 +1,3 @@
-
 (use '(incanter core stats charts io))
 
 (def votes (read-dataset "resources/iran_election_2009.csv"
