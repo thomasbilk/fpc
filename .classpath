@@ -1,12 +1,78 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <classpath>
         <classpathentry kind="src" path="src/"/>
+        <classpathentry kind="src" path="resources/"/>
         <classpathentry kind="src" path="test/"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
     <classpathentry kind="output" path="target/classes"/>
+        <classpathentry kind="lib" path="/home/tom/.m2/repository/org/scilab/forge/jlatexmath/0.9.6/jlatexmath-0.9.6.jar"/>
+        <classpathentry kind="lib" path="/home/tom/.m2/repository/net/sf/opencsv/opencsv/2.3/opencsv-2.3.jar"/>
+        <classpathentry kind="lib" path="/home/tom/.m2/repository/org/apache/xmlbeans/xmlbeans/2.3.0/xmlbeans-2.3.0.jar"/>
+        <classpathentry kind="lib" path="/home/tom/.m2/repository/net/sourceforge/f2j/arpack_combined_all/0.1/arpack_combined_all-0.1.jar"/>
+        <classpathentry kind="lib" path="/home/tom/.m2/repository/xalan/xalan/2.6.0/xalan-2.6.0.jar"/>
+        <classpathentry kind="lib" path="/home/tom/.m2/repository/org/clojure/data.json/0.2.0/data.json-0.2.0.jar"/>
+        <classpathentry kind="lib" path="/home/tom/.m2/repository/com/lowagie/itext/2.1.7/itext-2.1.7.jar"/>
+        <classpathentry kind="lib" path="/home/tom/.m2/repository/incanter/incanter-latex/1.5.6/incanter-latex-1.5.6.jar"/>
+        <classpathentry kind="lib" path="/home/tom/.m2/repository/net/sourceforge/parallelcolt/parallelcolt/0.10.1/parallelcolt-0.10.1.jar"/>
+        <classpathentry kind="lib" path="/home/tom/.m2/repository/com/github/rwl/JKLU/1.0.0/JKLU-1.0.0.jar"/>
+        <classpathentry kind="lib" path="/home/tom/.m2/repository/org/apache/poi/poi-ooxml-schemas/3.9/poi-ooxml-schemas-3.9.jar"/>
+        <classpathentry kind="lib" path="/home/tom/.m2/repository/incanter/incanter-excel/1.5.6/incanter-excel-1.5.6.jar"/>
+        <classpathentry kind="lib" path="/home/tom/.m2/repository/net/mikera/core.matrix/0.7.2/core.matrix-0.7.2.jar"/>
         <classpathentry kind="lib" path="/home/tom/.m2/repository/clojure-complete/clojure-complete/0.2.3/clojure-complete-0.2.3.jar"/>
-        <classpathentry kind="lib" path="/home/tom/.m2/repository/org/clojure/tools.nrepl/0.2.6/tools.nrepl-0.2.6.jar"/>
+        <classpathentry kind="lib" path="/home/tom/.m2/repository/stax/stax-api/1.0.1/stax-api-1.0.1.jar"/>
+        <classpathentry kind="lib" path="/home/tom/.m2/repository/org/bouncycastle/bcmail-jdk14/1.38/bcmail-jdk14-1.38.jar"/>
+        <classpathentry kind="lib" path="/home/tom/.m2/repository/org/apache/poi/poi-ooxml/3.9/poi-ooxml-3.9.jar"/>
+        <classpathentry kind="lib" path="/home/tom/.m2/repository/joda-time/joda-time/2.2/joda-time-2.2.jar"/>
+        <classpathentry kind="lib" path="/home/tom/.m2/repository/incanter/incanter-pdf/1.5.6/incanter-pdf-1.5.6.jar"/>
+        <classpathentry kind="lib" path="/home/tom/.m2/repository/org/clojure/core.incubator/0.1.2/core.incubator-0.1.2.jar"/>
+        <classpathentry kind="lib" path="/home/tom/.m2/repository/org/apache/xmlgraphics/batik-css/1.7/batik-css-1.7.jar"/>
+        <classpathentry kind="lib" path="/home/tom/.m2/repository/org/apache/xmlgraphics/batik-ext/1.7/batik-ext-1.7.jar"/>
+        <classpathentry kind="lib" path="/home/tom/.m2/repository/org/apache/xmlgraphics/batik-awt-util/1.7/batik-awt-util-1.7.jar"/>
+        <classpathentry kind="lib" path="/home/tom/.m2/repository/junit/junit/4.8.2/junit-4.8.2.jar"/>
+        <classpathentry kind="lib" path="/home/tom/.m2/repository/incanter/jcommon/1.0.16/jcommon-1.0.16.jar"/>
+        <classpathentry kind="lib" path="/home/tom/.m2/repository/net/sourceforge/csparsej/csparsej/1.1.1/csparsej-1.1.1.jar"/>
+        <classpathentry kind="lib" path="/home/tom/.m2/repository/org/clojure/java.jdbc/0.2.3/java.jdbc-0.2.3.jar"/>
+        <classpathentry kind="lib" path="/home/tom/.m2/repository/xml-apis/xml-apis/1.3.04/xml-apis-1.3.04.jar"/>
+        <classpathentry kind="lib" path="/home/tom/.m2/repository/org/jblas/jblas/1.2.3/jblas-1.2.3.jar"/>
+        <classpathentry kind="lib" path="/home/tom/.m2/repository/clojureql/clojureql/1.0.4/clojureql-1.0.4.jar"/>
+        <classpathentry kind="lib" path="/home/tom/.m2/repository/incanter/incanter-zoo/1.5.6/incanter-zoo-1.5.6.jar"/>
+        <classpathentry kind="lib" path="/home/tom/.m2/repository/congomongo/congomongo/0.3.3/congomongo-0.3.3.jar"/>
+        <classpathentry kind="lib" path="/home/tom/.m2/repository/incanter/incanter-core/1.5.6/incanter-core-1.5.6.jar"/>
+        <classpathentry kind="lib" path="/home/tom/.m2/repository/com/googlecode/netlib-java/netlib-java/0.9.3/netlib-java-0.9.3.jar"/>
+        <classpathentry kind="lib" path="/home/tom/.m2/repository/bouncycastle/bcprov-jdk14/138/bcprov-jdk14-138.jar"/>
+        <classpathentry kind="lib" path="/home/tom/.m2/repository/incanter/incanter-svg/1.5.6/incanter-svg-1.5.6.jar"/>
+        <classpathentry kind="lib" path="/home/tom/.m2/repository/incanter/incanter-io/1.5.6/incanter-io-1.5.6.jar"/>
         <classpathentry kind="lib" path="/home/tom/.m2/repository/org/clojure/core.logic/0.8.8/core.logic-0.8.8.jar"/>
+        <classpathentry kind="lib" path="/home/tom/.m2/repository/org/bouncycastle/bctsp-jdk14/1.38/bctsp-jdk14-1.38.jar"/>
+        <classpathentry kind="lib" path="/home/tom/.m2/repository/org/apache/xmlgraphics/batik-svggen/1.7/batik-svggen-1.7.jar"/>
+        <classpathentry kind="lib" path="/home/tom/.m2/repository/incanter/incanter/1.5.6/incanter-1.5.6.jar"/>
+        <classpathentry kind="lib" path="/home/tom/.m2/repository/bouncycastle/bcmail-jdk14/138/bcmail-jdk14-138.jar"/>
+        <classpathentry kind="lib" path="/home/tom/.m2/repository/net/sourceforge/parallelcolt/optimization/1.0/optimization-1.0.jar"/>
+        <classpathentry kind="lib" path="/home/tom/.m2/repository/incanter/incanter-charts/1.5.6/incanter-charts-1.5.6.jar"/>
+        <classpathentry kind="lib" path="/home/tom/.m2/repository/incanter/jfreechart/1.0.13-no-gnujaxp/jfreechart-1.0.13-no-gnujaxp.jar"/>
+        <classpathentry kind="lib" path="/home/tom/.m2/repository/com/github/rwl/BTFJ/1.0.1/BTFJ-1.0.1.jar"/>
+        <classpathentry kind="lib" path="/home/tom/.m2/repository/clj-time/clj-time/0.6.0/clj-time-0.6.0.jar"/>
+        <classpathentry kind="lib" path="/home/tom/.m2/repository/net/sourceforge/jtransforms/jtransforms/2.4.0/jtransforms-2.4.0.jar"/>
+        <classpathentry kind="lib" path="/home/tom/.m2/repository/slingshot/slingshot/0.10.3/slingshot-0.10.3.jar"/>
+        <classpathentry kind="lib" path="/home/tom/.m2/repository/org/danlarkin/clojure-json/1.1/clojure-json-1.1.jar"/>
+        <classpathentry kind="lib" path="/home/tom/.m2/repository/org/apache/xmlgraphics/batik-xml/1.7/batik-xml-1.7.jar"/>
+        <classpathentry kind="lib" path="/home/tom/.m2/repository/org/apache/xmlgraphics/batik-util/1.7/batik-util-1.7.jar"/>
+        <classpathentry kind="lib" path="/home/tom/.m2/repository/incanter/incanter-sql/1.5.6/incanter-sql-1.5.6.jar"/>
+        <classpathentry kind="lib" path="/home/tom/.m2/repository/xml-apis/xml-apis-ext/1.3.04/xml-apis-ext-1.3.04.jar"/>
+        <classpathentry kind="lib" path="/home/tom/.m2/repository/dom4j/dom4j/1.6.1/dom4j-1.6.1.jar"/>
+        <classpathentry kind="lib" path="/home/tom/.m2/repository/org/apache/xmlgraphics/batik-dom/1.7/batik-dom-1.7.jar"/>
+        <classpathentry kind="lib" path="/home/tom/.m2/repository/org/clojure/tools.nrepl/0.2.6/tools.nrepl-0.2.6.jar"/>
+        <classpathentry kind="lib" path="/home/tom/.m2/repository/net/sourceforge/jplasma/jplasma/1.2.0/jplasma-1.2.0.jar"/>
+        <classpathentry kind="lib" path="/home/tom/.m2/repository/org/mongodb/mongo-java-driver/2.9.3/mongo-java-driver-2.9.3.jar"/>
         <classpathentry kind="lib" path="/home/tom/.m2/repository/org/clojure/clojure/1.6.0/clojure-1.6.0.jar"/>
+        <classpathentry kind="lib" path="/home/tom/.m2/repository/org/clojure/math.combinatorics/0.0.4/math.combinatorics-0.0.4.jar"/>
+        <classpathentry kind="lib" path="/home/tom/.m2/repository/com/github/rwl/AMDJ/1.0.1/AMDJ-1.0.1.jar"/>
+        <classpathentry kind="lib" path="/home/tom/.m2/repository/org/apache/poi/poi/3.9/poi-3.9.jar"/>
+        <classpathentry kind="lib" path="/home/tom/.m2/repository/commons-codec/commons-codec/1.5/commons-codec-1.5.jar"/>
+        <classpathentry kind="lib" path="/home/tom/.m2/repository/net/sourceforge/jplasma/core-lapack/0.1/core-lapack-0.1.jar"/>
+        <classpathentry kind="lib" path="/home/tom/.m2/repository/com/github/rwl/COLAMDJ/1.0.1/COLAMDJ-1.0.1.jar"/>
+        <classpathentry kind="lib" path="/home/tom/.m2/repository/org/bouncycastle/bcprov-jdk14/1.38/bcprov-jdk14-1.38.jar"/>
+        <classpathentry kind="lib" path="/home/tom/.m2/repository/incanter/incanter-mongodb/1.5.6/incanter-mongodb-1.5.6.jar"/>
+        <classpathentry kind="lib" path="/home/tom/.m2/repository/clatrix/clatrix/0.3.0/clatrix-0.3.0.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

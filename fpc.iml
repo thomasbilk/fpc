@@ -8,14 +8,80 @@
   <component name="NewModuleRootManager" inherit-compiler-output="true">
     <exclude-output />
     <content url="file://$MODULE_DIR$">
-      <sourceFolder url="file://$MODULE_DIR$/src" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/test" isTestSource="true" />
+      <sourceFolder url="file://$MODULE_DIR$/src/" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/resources/" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/test/" isTestSource="true" />
     </content>
     <orderEntry type="jdk" jdkName="1.7" jdkType="JavaSDK" />
     <orderEntry type="sourceFolder" forTests="false" />
-    <orderEntry type="library" name="clojure-complete-0.2.3-G__739" level="project" />
-    <orderEntry type="library" name="tools.nrepl-0.2.6-G__740" level="project" />
-    <orderEntry type="library" name="core.logic-0.8.8-G__741" level="project" />
-    <orderEntry type="library" name="clojure-1.6.0-G__742" level="project" />
+    <orderEntry type="library" name="jlatexmath-0.9.6-G__739" level="project" />
+    <orderEntry type="library" name="opencsv-2.3-G__740" level="project" />
+    <orderEntry type="library" name="xmlbeans-2.3.0-G__741" level="project" />
+    <orderEntry type="library" name="arpack_combined_all-0.1-G__742" level="project" />
+    <orderEntry type="library" name="xalan-2.6.0-G__743" level="project" />
+    <orderEntry type="library" name="data.json-0.2.0-G__744" level="project" />
+    <orderEntry type="library" name="itext-2.1.7-G__745" level="project" />
+    <orderEntry type="library" name="incanter-latex-1.5.6-G__746" level="project" />
+    <orderEntry type="library" name="parallelcolt-0.10.1-G__747" level="project" />
+    <orderEntry type="library" name="JKLU-1.0.0-G__748" level="project" />
+    <orderEntry type="library" name="poi-ooxml-schemas-3.9-G__749" level="project" />
+    <orderEntry type="library" name="incanter-excel-1.5.6-G__750" level="project" />
+    <orderEntry type="library" name="core.matrix-0.7.2-G__751" level="project" />
+    <orderEntry type="library" name="clojure-complete-0.2.3-G__752" level="project" />
+    <orderEntry type="library" name="stax-api-1.0.1-G__753" level="project" />
+    <orderEntry type="library" name="bcmail-jdk14-1.38-G__754" level="project" />
+    <orderEntry type="library" name="poi-ooxml-3.9-G__755" level="project" />
+    <orderEntry type="library" name="joda-time-2.2-G__756" level="project" />
+    <orderEntry type="library" name="incanter-pdf-1.5.6-G__757" level="project" />
+    <orderEntry type="library" name="core.incubator-0.1.2-G__758" level="project" />
+    <orderEntry type="library" name="batik-css-1.7-G__759" level="project" />
+    <orderEntry type="library" name="batik-ext-1.7-G__760" level="project" />
+    <orderEntry type="library" name="batik-awt-util-1.7-G__761" level="project" />
+    <orderEntry type="library" name="junit-4.8.2-G__762" level="project" />
+    <orderEntry type="library" name="jcommon-1.0.16-G__763" level="project" />
+    <orderEntry type="library" name="csparsej-1.1.1-G__764" level="project" />
+    <orderEntry type="library" name="java.jdbc-0.2.3-G__765" level="project" />
+    <orderEntry type="library" name="xml-apis-1.3.04-G__766" level="project" />
+    <orderEntry type="library" name="jblas-1.2.3-G__767" level="project" />
+    <orderEntry type="library" name="clojureql-1.0.4-G__768" level="project" />
+    <orderEntry type="library" name="incanter-zoo-1.5.6-G__769" level="project" />
+    <orderEntry type="library" name="congomongo-0.3.3-G__770" level="project" />
+    <orderEntry type="library" name="incanter-core-1.5.6-G__771" level="project" />
+    <orderEntry type="library" name="netlib-java-0.9.3-G__772" level="project" />
+    <orderEntry type="library" name="bcprov-jdk14-138-G__773" level="project" />
+    <orderEntry type="library" name="incanter-svg-1.5.6-G__774" level="project" />
+    <orderEntry type="library" name="incanter-io-1.5.6-G__775" level="project" />
+    <orderEntry type="library" name="core.logic-0.8.8-G__776" level="project" />
+    <orderEntry type="library" name="bctsp-jdk14-1.38-G__777" level="project" />
+    <orderEntry type="library" name="batik-svggen-1.7-G__778" level="project" />
+    <orderEntry type="library" name="incanter-1.5.6-G__779" level="project" />
+    <orderEntry type="library" name="bcmail-jdk14-138-G__780" level="project" />
+    <orderEntry type="library" name="optimization-1.0-G__781" level="project" />
+    <orderEntry type="library" name="incanter-charts-1.5.6-G__782" level="project" />
+    <orderEntry type="library" name="jfreechart-1.0.13-no-gnujaxp-G__783" level="project" />
+    <orderEntry type="library" name="BTFJ-1.0.1-G__784" level="project" />
+    <orderEntry type="library" name="clj-time-0.6.0-G__785" level="project" />
+    <orderEntry type="library" name="jtransforms-2.4.0-G__786" level="project" />
+    <orderEntry type="library" name="slingshot-0.10.3-G__787" level="project" />
+    <orderEntry type="library" name="clojure-json-1.1-G__788" level="project" />
+    <orderEntry type="library" name="batik-xml-1.7-G__789" level="project" />
+    <orderEntry type="library" name="batik-util-1.7-G__790" level="project" />
+    <orderEntry type="library" name="incanter-sql-1.5.6-G__791" level="project" />
+    <orderEntry type="library" name="xml-apis-ext-1.3.04-G__792" level="project" />
+    <orderEntry type="library" name="dom4j-1.6.1-G__793" level="project" />
+    <orderEntry type="library" name="batik-dom-1.7-G__794" level="project" />
+    <orderEntry type="library" name="tools.nrepl-0.2.6-G__795" level="project" />
+    <orderEntry type="library" name="jplasma-1.2.0-G__796" level="project" />
+    <orderEntry type="library" name="mongo-java-driver-2.9.3-G__797" level="project" />
+    <orderEntry type="library" name="clojure-1.6.0-G__798" level="project" />
+    <orderEntry type="library" name="math.combinatorics-0.0.4-G__799" level="project" />
+    <orderEntry type="library" name="AMDJ-1.0.1-G__800" level="project" />
+    <orderEntry type="library" name="poi-3.9-G__801" level="project" />
+    <orderEntry type="library" name="commons-codec-1.5-G__802" level="project" />
+    <orderEntry type="library" name="core-lapack-0.1-G__803" level="project" />
+    <orderEntry type="library" name="COLAMDJ-1.0.1-G__804" level="project" />
+    <orderEntry type="library" name="bcprov-jdk14-1.38-G__805" level="project" />
+    <orderEntry type="library" name="incanter-mongodb-1.5.6-G__806" level="project" />
+    <orderEntry type="library" name="clatrix-0.3.0-G__807" level="project" />
   </component>
 </module>
